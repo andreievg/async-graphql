@@ -97,7 +97,7 @@ time = { version = "0.3.36", optional = true, features = [
   "formatting",
   "macros",
 ] }
-tokio = { version = "1.37.0", features = ["sync"], optional = true }
+tokio = { version = "1.37.0", features = ["sync", "time"], optional = true }
 tracing-futures = { version = "0.2.5", optional = true, features = [
   "std-future",
   "futures-03",
