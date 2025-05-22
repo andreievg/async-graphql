@@ -74,9 +74,9 @@ use std::{
 
 pub use cache::{CacheFactory, CacheStorage, HashMapCache, LruCache, NoCache};
 use fnv::FnvHashMap;
-use futures_channel::oneshot;
 use futures_timer::Delay;
 use futures_util::future::BoxFuture;
+use tokio::sync::oneshot;
 #[cfg(feature = "tracing")]
 use tracing::{Instrument, info_span, instrument};
 #[cfg(feature = "tracing")]
