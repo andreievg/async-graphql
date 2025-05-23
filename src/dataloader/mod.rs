@@ -75,7 +75,6 @@ use std::{
 pub use cache::{CacheFactory, CacheStorage, HashMapCache, LruCache, NoCache};
 use fnv::FnvHashMap;
 use futures_channel::oneshot;
-use futures_timer::Delay;
 use futures_util::future::BoxFuture;
 #[cfg(feature = "tracing")]
 use tracing::{info_span, instrument, Instrument};
@@ -388,7 +387,7 @@ impl<T, C: CacheFactory> DataLoader<T, C> {
                 let delay = self.delay;
 
                 let task = async move {
-                    Delay::new(delay).await;
+                    tokio::time::sleep(delay).await;
 
                     let keys = {
                         let mut request = inner.requests.lock().unwrap();

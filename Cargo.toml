@@ -19,12 +19,12 @@ apollo_tracing = ["chrono"]
 email-validator = ["fast_chemail"]
 cbor = ["serde_cbor"]
 chrono-duration = ["chrono", "iso8601"]
-dataloader = ["futures-channel", "lru"]
+dataloader = ["futures-channel", "lru", "tokio/time"]
 decimal = ["rust_decimal"]
 default = ["email-validator", "tempfile", "playground", "graphiql"]
 password-strength-validator = ["zxcvbn"]
 string_number = []
-tokio-sync = ["tokio"]
+tokio-sync = ["tokio/sync"]
 tracing = ["tracinglib", "tracing-futures"]
 unblock = ["blocking"]
 dynamic-schema = []
@@ -97,7 +97,7 @@ time = { version = "0.3.36", optional = true, features = [
   "formatting",
   "macros",
 ] }
-tokio = { version = "1.37.0", features = ["sync"], optional = true }
+tokio = { version = "1.37.0", optional = true }
 tracing-futures = { version = "0.2.5", optional = true, features = [
   "std-future",
   "futures-03",
